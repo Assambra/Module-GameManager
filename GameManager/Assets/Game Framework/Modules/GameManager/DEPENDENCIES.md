@@ -9,10 +9,10 @@
  - None
 
 ### Packages: Unity Registery
- - None
+ - Visual Studio Editor v2.0.16 * 
 
 ### Packages: My Assets
  - None
 
 ## Information
- - *We work with Visual Studio. If you use a different code editor, you need to install the right package for you.  
+*We work with Visual Studio. If you use a different code editor, you need to install the right package for you.  
