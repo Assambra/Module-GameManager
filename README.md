@@ -11,9 +11,10 @@
     </a>
     <h1 align="center">Modul-GameManager</h1>
     <p align="center">
-        The GameManager is Module and a part of our <a href="#about-the-unity-game-framework">Unity Game Framework</a>
+        The GameManager is a module and part of our <a href="#about-the-unity-game-framework">Unity Game Framework</a>
     </p>
-</div> 
+</div>
+<br /> 
     <h4>Key Features</h4>
     <ul>
         <li>GameState - Enum GameState will representating the current GameState and other classes can get the state to do there logic.</li>
@@ -38,7 +39,7 @@
     <ol>
         <li><a href="#demo-image">Demo Image</a></li>
         <li>
-            <a href="#about-the-unity-game-framework">About The Unity Game Framework</a>
+            <a href="#the-unity-game-framework">The Unity Game Framework</a>
             <ul>
                 <li><a href="#built-with">Built With</a></li>
             </ul>
@@ -53,33 +54,15 @@
 <!-- Demo Image-->
 ## Demo Image
 ![Our Demo Scene][product-screenshot]
+<br />
 
 <!-- ABOUT THE PROJECT -->
-## About the Unity Game Framework
-
-<br />
-The idea behind the Unity Game Framework is to provide individual reusable modules for Unity. The individual modules each have only one task, should fit seamlessly together and if possible work individually. If this is not possible, a dependency is stored in the module itself that further modules are required. The modules are each individual repositories and have the prefix Module-.
-<br />
-<br />
-In the Assambra Game Framework Project all of our individual modules come together to show how they work together. But it can also serve as a foundation for your next project. Only the latest modules are added here if there was a new module release or completely new modules were added to the our Assambra repositorys.
-<br />
-<br />
-Currently the focus is on our framework and modules in the area of ​​RPG, MMORPG.
-That doesn't mean that you can't use individual modules for your game and other game genres.
-<br />
-<br />
-Important: If you want to contribute to this project. Fork, pull requests and issues only in the respective Module- repositories. Except if you need a new Module- then open a issue with a module request here.
+## The Unity Game Framework
+Learn more about the Unity Game Framework <a href="https://github.com/Assambra/Unity-Game-Framework#about-the-project">here</a>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 [![Unity][Unity.com]][Unity-url]
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- MODULES -->
-## Unity Game Framework
-<ul>
-    <li><a href="https://github.com/Assambra/Unity-Game-Framework">Game Framework</a></li>
-</ul>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MODULES -->
