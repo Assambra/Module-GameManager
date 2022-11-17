@@ -11,7 +11,7 @@
     </a>
     <h1 align="center">Modul-GameManager</h1>
     <p align="center">
-        The GameManager is a module and part of our <a href="#about-the-unity-game-framework">Unity Game Framework</a>
+        The GameManager is a module and part of our <a href="#the-unity-game-framework">Unity Game Framework</a>
     </p>
 </div>
 <br /> 
@@ -57,7 +57,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## The Unity Game Framework
-Learn more about the Unity Game Framework <a href="https://github.com/Assambra/Unity-Game-Framework#about-the-project">here</a>
+Learn more about the Unity Game Framework <a href="https://github.com/Assambra/Unity-Game-Framework#the-unity-game-framework">here</a>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
