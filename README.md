@@ -11,7 +11,7 @@
     </a>
     <h1 align="center">Modul-GameManager</h1>
     <p align="center">
-        The GameManager is a module and part of our <a href="#the-unity-game-framework">Unity Game Framework</a>
+        The GameManager is a module and part of our <a href="https://github.com/Assambra/Unity-Game-Framework">Unity Game Framework</a>
     </p>
 </div>
 <br /> 
@@ -22,14 +22,14 @@
     </ul>
     <br />
     <p align="center">
-    <a href="https://github.com/Assambra/GameManager/wiki"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Assambra/Module-GameManager/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Assambra/GameManager/releases">Get Latest</a>
+    <a href="https://github.com/Assambra/Module-GameManager/releases">Get Latest</a>
     ·
-    <a href="https://github.com/Assambra/GameManager/issues">Report Bug</a>
+    <a href="https://github.com/Assambra/Module-GameManager/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Assambra/GameManager/issues">Request Feature</a>
+    <a href="https://github.com/Assambra/Module-GameManager/issues">Request Feature</a>
   </p>
 <br />
 
@@ -46,6 +46,7 @@
         </li>
         <li><a href="#modules">Modules</a></li>
         <li><a href="#be-a-gentlemen">Be a Gentlemen</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ol>
 </details>
 <br />
@@ -53,7 +54,7 @@
 <!-- Demo Image-->
 ## Demo Image
 ![Our Demo Scene][product-screenshot]
-<br />
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ABOUT THE PROJECT -->
 ## The Unity Game Framework
@@ -76,6 +77,12 @@ Learn more about the Unity Game Framework <a href="https://github.com/Assambra/U
 <!-- Be a Gentlemen-->
 ## Be a Gentlemen
 <-- Get Code --> Give Code, if you able to do that.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Contact -->
+## Contact
+Join us on <a href="https://discord.gg/qyCdkYSWVG">Discord</a>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 [contributors-shield]: https://img.shields.io/github/contributors/Assambra/Module-GameManager.svg?style=for-the-badge
 [contributors-url]: https://github.com/Assambra/Module-GameManager/graphs/contributors
