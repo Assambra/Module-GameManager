@@ -69,6 +69,8 @@ Learn more about the Unity Game Framework <a href="https://github.com/Assambra/U
 ## Modules
 <ul>
     <li><a href="https://github.com/Assambra/Module-GameManager">GameManager</a></li>
+    <li><a href="https://github.com/Assambra/Module-SceneHandler">SceneHandler</a></li>
+    <li><a href="https://github.com/Assambra/Module-UIHandler">UIHandler</a></li>
 </ul>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
