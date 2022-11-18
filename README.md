@@ -19,6 +19,8 @@
     <ul>
         <li>GameState - Enum GameState will representating the current GameState and other classes can get the state to do there logic.</li>
         <li>DontDestroy - Preventing GameObjects where its attached to, they are not destroyed if the scene switched.</li>
+        <li>SceneHandler - Changes the scene to the appropriate GameState</li>
+        <li>UIHandler - UI Element will be enabled to the appropriate GameState and the last UI will be deactivated. </li>
     </ul>
     <br />
     <p align="center">
@@ -69,8 +71,6 @@ Learn more about the Unity Game Framework <a href="https://github.com/Assambra/U
 ## Modules
 <ul>
     <li><a href="https://github.com/Assambra/Module-GameManager">GameManager</a></li>
-    <li><a href="https://github.com/Assambra/Module-SceneHandler">SceneHandler</a></li>
-    <li><a href="https://github.com/Assambra/Module-UIHandler">UIHandler</a></li>
 </ul>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
