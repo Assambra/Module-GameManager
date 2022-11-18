@@ -570,6 +570,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 775162410}
     m_Modifications:
+    - target: {fileID: 5564140045581282128, guid: 697389ec9f47fba498875310523e2799, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2011684218}
     - target: {fileID: 5564140045581282134, guid: 697389ec9f47fba498875310523e2799, type: 3}
       propertyPath: m_Name
       value: UIHandler
