@@ -13,5 +13,6 @@ create a Scene for each GameState with the exact name (except Scene Start (Step 
 3. Adding all Scenes including Start to Build Settings -> Scenes in Built.
  
 4. Open scene Start and Hit Play, select the GameObject GameManager and change the GameState in the dropdown menu. 
-The scene changes to the appropriate GameState.
+The scene changes to the appropriate GameState and
+the scene UI will also be activated and the last UI will be deactivated.
 
