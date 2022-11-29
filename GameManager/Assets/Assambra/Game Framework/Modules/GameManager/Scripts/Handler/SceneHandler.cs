@@ -61,8 +61,13 @@ public class SceneHandler : MonoBehaviour
         }
     }
 
-    private void SwitchScene(string scene)
+    private void LoadSceneAsync(string scene, LoadSceneMode mode)
     {
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadSceneAsync(scene, mode);
+    }
+
+    private void UnloadSceneAsync(string scene)
+    {
+        SceneManager.UnloadSceneAsync(scene);
     }
 }
