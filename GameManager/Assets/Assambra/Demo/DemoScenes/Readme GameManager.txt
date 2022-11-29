@@ -5,14 +5,14 @@ e.g. your scenes with the same name or those in the Unity Game Framework, when i
 
 Extra steps are necessary. 
 
-1. Rename scene SceneHandler to Start
+1. Rename scene SceneHandler to Persistent
 
 2. Open the File Assets/Assambra/Game Framework/Modules/GameManager/Scripts/Enums/GameState.cs and 
-create a Scene for each GameState with the exact name (except Scene Start (Step 1.)) -> Login, CreateAccount, CharacterSelection, CharacterCreation, BeginnerArea, World.
+create a Scene for each GameState with the exact name (except Scene Persistent (Step 1.)) -> Login, CreateAccount, CharacterSelection, CharacterCreation, BeginnerArea, World.
 
 3. Adding all Scenes including Start to Build Settings -> Scenes in Built.
  
-4. Open scene Start and Hit Play, select the GameObject GameManager and change the GameState in the dropdown menu. 
+4. Open scene Persistent and Hit Play, select the GameObject GameManager and change the GameState in the dropdown menu. 
 The scene changes to the appropriate GameState and
 the scene UI will also be activated and the last UI will be deactivated.
 
