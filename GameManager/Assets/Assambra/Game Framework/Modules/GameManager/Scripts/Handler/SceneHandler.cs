@@ -29,6 +29,9 @@ public class SceneHandler : MonoBehaviour
 
         if (gameState != lastGameState)
         {
+            if (lastGameState != GameState.Persistent)
+                UnloadSceneAsync(lastGameState.ToString());
+
             lastGameState = gameState;
 
             switch (gameState)
