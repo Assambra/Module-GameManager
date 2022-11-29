@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class UIHandler : MonoBehaviour
 {
@@ -20,7 +18,7 @@ public class UIHandler : MonoBehaviour
     private void Awake()
     {
         if (gameManager == null)
-            Debug.LogError("Error: No OmniaSceneManager found");
+            Debug.LogError("Error: No Game Manager found");
 
         sceneUIs = GetComponentsInChildren<SceneUI>(true);
 
@@ -41,8 +39,8 @@ public class UIHandler : MonoBehaviour
         {
             SceneUI sceneUI = null;
 
-            //Disable last UI except last scene is Start
-            if (lastGameState.ToString() != "Start")
+            //Disable last UI except last scene is Persistent
+            if (lastGameState.ToString() != "Persistent")
             {
                 sceneUIsDictionary.TryGetValue(lastGameState.ToString(), out sceneUI);
                 sceneUI.ChangeActiveState();
@@ -53,7 +51,7 @@ public class UIHandler : MonoBehaviour
             switch (gameState)
             {
                 //We switch direct from Start scene to Login Scene
-                case GameState.Start:
+                case GameState.Persistent:
                     // Nothing to do here
                     break;
                 case GameState.Login:

@@ -15,7 +15,7 @@ public class SceneHandler : MonoBehaviour
     private void Awake()
     {
         if (gameManager == null)
-            Debug.LogError("Error: No Scene Handler found");
+            Debug.LogError("Error: No Game Manager found");
     }
 
     private void Start()
@@ -29,31 +29,33 @@ public class SceneHandler : MonoBehaviour
 
         if (gameState != lastGameState)
         {
+            if (lastGameState != GameState.Persistent)
+                UnloadSceneAsync(lastGameState.ToString());
+
             lastGameState = gameState;
 
             switch (gameState)
             {
-                //We switch direct from Start scene to Login Scene
-                case GameState.Start:
-                    // Nothing to do here
+                case GameState.Persistent:
+                    LoadSceneAsync(nameof(GameState.Persistent), LoadSceneMode.Single);
                     break;
                 case GameState.Login:
-                    SwitchScene(nameof(GameState.Login));
+                    LoadSceneAsync(nameof(GameState.Login), LoadSceneMode.Additive);
                     break;
                 case GameState.CreateAccount:
-                    SwitchScene(nameof(GameState.CreateAccount));
+                    LoadSceneAsync(nameof(GameState.CreateAccount), LoadSceneMode.Additive);
                     break;
                 case GameState.CharacterSelection:
-                    SwitchScene(nameof(GameState.CharacterSelection));
+                    LoadSceneAsync(nameof(GameState.CharacterSelection), LoadSceneMode.Additive);
                     break;
                 case GameState.CharacterCreation:
-                    SwitchScene(nameof(GameState.CharacterCreation));
+                    LoadSceneAsync(nameof(GameState.CharacterCreation), LoadSceneMode.Additive);
                     break;
                 case GameState.BeginnerArea:
-                    SwitchScene(nameof(GameState.BeginnerArea));
+                    LoadSceneAsync(nameof(GameState.BeginnerArea), LoadSceneMode.Additive);
                     break;
                 case GameState.World:
-                    SwitchScene(nameof(GameState.World));
+                    LoadSceneAsync(nameof(GameState.World), LoadSceneMode.Additive);
                     break;
                 default:
                     Debug.LogError("Error: Unknown GameState");
@@ -62,8 +64,13 @@ public class SceneHandler : MonoBehaviour
         }
     }
 
-    private void SwitchScene(string scene)
+    private void LoadSceneAsync(string scene, LoadSceneMode mode)
     {
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadSceneAsync(scene, mode);
+    }
+
+    private void UnloadSceneAsync(string scene)
+    {
+        SceneManager.UnloadSceneAsync(scene);
     }
 }
