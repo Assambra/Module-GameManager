@@ -34,25 +34,25 @@ public class SceneHandler : MonoBehaviour
             switch (gameState)
             {
                 case GameState.Persistent:
-                    SwitchScene(nameof(GameState.Persistent));
+                    LoadSceneAsync(nameof(GameState.Persistent, LoadSceneMode.Single));
                     break;
                 case GameState.Login:
-                    SwitchScene(nameof(GameState.Login));
+                    LoadSceneAsync(nameof(GameState.Login), LoadSceneMode.Additive);
                     break;
                 case GameState.CreateAccount:
-                    SwitchScene(nameof(GameState.CreateAccount));
+                    LoadSceneAsync(nameof(GameState.CreateAccount), LoadSceneMode.Additive);
                     break;
                 case GameState.CharacterSelection:
-                    SwitchScene(nameof(GameState.CharacterSelection));
+                    LoadSceneAsync(nameof(GameState.CharacterSelection), LoadSceneMode.Additive);
                     break;
                 case GameState.CharacterCreation:
-                    SwitchScene(nameof(GameState.CharacterCreation));
+                    LoadSceneAsync(nameof(GameState.CharacterCreation), LoadSceneMode.Additive);
                     break;
                 case GameState.BeginnerArea:
-                    SwitchScene(nameof(GameState.BeginnerArea));
+                    LoadSceneAsync(nameof(GameState.BeginnerArea), LoadSceneMode.Additive);
                     break;
                 case GameState.World:
-                    SwitchScene(nameof(GameState.World));
+                    LoadSceneAsync(nameof(GameState.World), LoadSceneMode.Additive);
                     break;
                 default:
                     Debug.LogError("Error: Unknown GameState");
