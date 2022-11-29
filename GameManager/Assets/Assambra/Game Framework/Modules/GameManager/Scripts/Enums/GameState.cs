@@ -1,6 +1,6 @@
 public enum GameState 
 { 
-    Start,
+    Persistent,
     Login,
     CreateAccount,
     CharacterSelection,

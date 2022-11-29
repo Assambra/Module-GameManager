@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
-        GameState = GameState.Start;
+        GameState = GameState.Persistent;
     }
 
     void Start()
@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // Just in case someone try to set the GameState.Start
-        if (GameState == GameState.Start)
+        // Just in case someone try to set the GameState.Persistent
+        if (GameState == GameState.Persistent)
             GameState = GameState.Login;
     }
 }

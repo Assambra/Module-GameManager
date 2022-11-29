@@ -33,9 +33,8 @@ public class SceneHandler : MonoBehaviour
 
             switch (gameState)
             {
-                //We switch direct from Start scene to Login Scene
-                case GameState.Start:
-                    // Nothing to do here
+                case GameState.Persistent:
+                    SwitchScene(nameof(GameState.Persistent));
                     break;
                 case GameState.Login:
                     SwitchScene(nameof(GameState.Login));

@@ -39,8 +39,8 @@ public class UIHandler : MonoBehaviour
         {
             SceneUI sceneUI = null;
 
-            //Disable last UI except last scene is Start
-            if (lastGameState.ToString() != "Start")
+            //Disable last UI except last scene is Persistent
+            if (lastGameState.ToString() != "Persistent")
             {
                 sceneUIsDictionary.TryGetValue(lastGameState.ToString(), out sceneUI);
                 sceneUI.ChangeActiveState();
@@ -51,7 +51,7 @@ public class UIHandler : MonoBehaviour
             switch (gameState)
             {
                 //We switch direct from Start scene to Login Scene
-                case GameState.Start:
+                case GameState.Persistent:
                     // Nothing to do here
                     break;
                 case GameState.Login:
