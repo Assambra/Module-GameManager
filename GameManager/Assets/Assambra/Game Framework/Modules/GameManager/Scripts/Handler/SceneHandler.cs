@@ -15,7 +15,7 @@ public class SceneHandler : MonoBehaviour
     private void Awake()
     {
         if (gameManager == null)
-            Debug.LogError("Error: No Scene Handler found");
+            Debug.LogError("Error: No Game Manager found");
     }
 
     private void Start()

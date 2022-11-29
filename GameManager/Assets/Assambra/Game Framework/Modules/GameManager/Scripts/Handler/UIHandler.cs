@@ -20,7 +20,7 @@ public class UIHandler : MonoBehaviour
     private void Awake()
     {
         if (gameManager == null)
-            Debug.LogError("Error: No OmniaSceneManager found");
+            Debug.LogError("Error: No Game Manager found");
 
         sceneUIs = GetComponentsInChildren<SceneUI>(true);
 
