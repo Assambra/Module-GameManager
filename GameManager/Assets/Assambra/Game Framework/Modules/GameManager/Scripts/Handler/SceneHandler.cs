@@ -34,7 +34,7 @@ public class SceneHandler : MonoBehaviour
             switch (gameState)
             {
                 case GameState.Persistent:
-                    LoadSceneAsync(nameof(GameState.Persistent, LoadSceneMode.Single));
+                    LoadSceneAsync(nameof(GameState.Persistent), LoadSceneMode.Single);
                     break;
                 case GameState.Login:
                     LoadSceneAsync(nameof(GameState.Login), LoadSceneMode.Additive);
