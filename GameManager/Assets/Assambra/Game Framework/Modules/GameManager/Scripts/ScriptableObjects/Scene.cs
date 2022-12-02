@@ -1,0 +1,11 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "Scene", menuName = "Assambra/Scene", order = 1)]
+public class Scene : ScriptableObject
+{
+    public string ScenePath;
+
+    public bool IsPersistentScene = false;
+    public bool IsFirstScene = false;
+    public GameObject SceneUIPrefab = null;
+}

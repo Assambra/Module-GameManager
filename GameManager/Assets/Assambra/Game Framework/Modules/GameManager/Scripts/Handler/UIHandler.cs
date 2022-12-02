@@ -12,27 +12,29 @@ public class UIHandler : MonoBehaviour
     // Private variables
     private SceneUI[] sceneUIs;
     private Dictionary<string, SceneUI> sceneUIsDictionary = new Dictionary<string, SceneUI>();
-    private GameState gameState;
-    private GameState lastGameState;
+    //private GameState gameState;
+    //private GameState lastGameState;
 
     private void Awake()
     {
         if (gameManager == null)
             Debug.LogError("Error: No Game Manager found");
-
+        /*
         sceneUIs = GetComponentsInChildren<SceneUI>(true);
 
         foreach (SceneUI sceneUI in sceneUIs)
             sceneUIsDictionary.Add(sceneUI.gameObject.name, sceneUI);
+        */
     }
 
     private void Start()
     {
-        lastGameState = gameState;
+        //lastGameState = gameState;
     }
 
     private void Update()
     {
+        /*
         gameState = gameManager.GameState;
 
         if (gameState != lastGameState)
@@ -82,6 +84,6 @@ public class UIHandler : MonoBehaviour
                     Debug.LogError("Error: Unknown GameState");
                     break;
             }
-        }
+        }*/
     }
 }
