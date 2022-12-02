@@ -5,7 +5,6 @@ public class Scene : ScriptableObject
 {
     public string ScenePath;
 
-    public bool IsPersistentScene = false;
     public bool IsFirstScene = false;
     public GameObject SceneUIPrefab = null;
 }

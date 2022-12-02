@@ -3,47 +3,35 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
-{
+{   
     [SerializeField] public List<Scene> Scenes = new List<Scene>();
     [SerializeField] public Scene CurrentScene = null;
     [SerializeField] public Scene LastScene = null;
+
 
     private void Awake()
     {
         foreach (Scene scene in Scenes)
         {
-            if (scene.IsPersistentScene)
+            if (scene.IsFirstScene)
             {
                 CurrentScene = scene;
-            }  
+            }
         }
     }
 
     private void Update()
     {
-        // Just in case someone try to use the persistent scene
-        if(CurrentScene.IsPersistentScene)
-        {
-            foreach (Scene scene in Scenes)
-            {
-                if(scene.IsFirstScene)
-                    CurrentScene = scene;
-            }
-        }
-
-        if (CurrentScene != LastScene && !CurrentScene.IsPersistentScene)
+        if (CurrentScene != LastScene)
         {
             foreach (Scene scene in Scenes)
             {
                 if (scene == CurrentScene)
-                {
                     LoadSceneAsync(scene.ScenePath, LoadSceneMode.Additive);
-                }
             }
+
             if (LastScene != null)
-            {
                 UnloadSceneAsync(LastScene.ScenePath);
-            }
 
             LastScene = CurrentScene;
         }

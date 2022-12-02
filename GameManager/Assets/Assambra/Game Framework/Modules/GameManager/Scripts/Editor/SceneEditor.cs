@@ -21,7 +21,6 @@ public class SceneEditor : Editor
             scenePathProperty.stringValue = newPath;
         }
 
-        scene.IsPersistentScene = EditorGUILayout.Toggle("Is Persistent Scene", scene.IsPersistentScene);
         scene.IsFirstScene = EditorGUILayout.Toggle("Is First Scene", scene.IsFirstScene);
         scene.SceneUIPrefab = (GameObject)EditorGUILayout.ObjectField("Scene UI Prefab",scene.SceneUIPrefab, typeof(GameObject), true);
 
