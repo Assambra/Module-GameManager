@@ -1,18 +1,36 @@
-Demo information:
+README GameManager
 
-The reason why we haven't done the steps below for you is that we don't want the Asset Pack to overwrite the scenes created below,
-e.g. your scenes with the same name or those in the Unity Game Framework, when importing.
+Demo:
+Open your DemoPersistent scene and hit play, select the GameObject GameManager and change the CurrentScene
+to another Scene asset. The selected scene asset will loaded the scene additively and also instantiate 
+the needed UI Elements. The LastScene will be unloaded async and the instantiated UIs will be destroyed.
 
-Extra steps are necessary. 
 
-1. Rename scene SceneHandler to Persistent
+How to use the GameManager Asset:
 
-2. Open the File Assets/Assambra/Game Framework/Modules/GameManager/Scripts/Enums/GameState.cs and 
-create a Scene for each GameState with the exact name (except Scene Persistent (Step 1.)) -> Login, CreateAccount, CharacterSelection, CharacterCreation, BeginnerArea, World.
+1. Create one Scene this will be your Persistent Scene all other scenes will be async loaded additive or unloaded. 
 
-3. Adding all Scenes including Start to Build Settings -> Scenes in Built.
- 
-4. Open scene Persistent and Hit Play, select the GameObject GameManager and change the GameState in the dropdown menu. 
-The scene changes to the appropriate GameState and
-the scene UI will also be activated and the last UI will be deactivated.
+2. Add the GameManager and UserInterface prefab into the hierarchy. 
+Add to the Canvas field in the GameManager the Canvas from the UserInterface
+
+3. Create your needed Scenes like GameMenu, World, Dungeon ... Adding all Scenes to 
+Build Settings -> Scenes in Built.
+
+4. Create for each scene a Scene asset (except the peristent scene), 
+Menu: Create/Assambra/Scene into a folder e.g. Data/Scenes and name it to your scene name. 
+One of this scenes need to have checked IsFirstScene e.g. (GameMenu).
+Add the Scene asset to the GameManager scenes list field;
+
+5. Create for each scene a SceneUI asset (except the peristent scene),
+Menu: Create/Assambra/SceneUI into a folder e.g Data/UI and name it to your scene name.
+
+6. Use the Prefab (YoureScenUI) and create for each UI Element you need a prefab 
+as example Login, and child UILogin, Inventory, SkillBar and so on and place it into a /Prefab folder.
+
+7. Select the named SceneUI asset, (lock it  with the lock symbol). 
+Add for each UI Element that have to be active in this scene into UI Element Prefab list, 
+(the eralier created) UI Element prefabs.
+
+8. Select the named Scene asset (lock it  with the lock symbol). 
+Add the eralier created named SceneUI asset to your field SceneUI;
 
