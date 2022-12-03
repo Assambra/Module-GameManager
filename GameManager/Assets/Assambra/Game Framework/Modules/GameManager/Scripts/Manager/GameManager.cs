@@ -4,14 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {   
-    [SerializeField] public List<Scene> Scenes = new List<Scene>();
-    [SerializeField] public Scene CurrentScene = null;
-    [SerializeField] public Scene LastScene = null;
+    [SerializeField] private List<Scene> scenes = new List<Scene>();
+    public Scene CurrentScene = null;
+    public Scene LastScene = null;
 
+    [SerializeField] private Transform canvas;
 
     private void Awake()
     {
-        foreach (Scene scene in Scenes)
+        foreach (Scene scene in scenes)
         {
             if (scene.IsFirstScene)
             {
@@ -24,15 +25,19 @@ public class GameManager : MonoBehaviour
     {
         if (CurrentScene != LastScene)
         {
-            foreach (Scene scene in Scenes)
+            foreach (Scene scene in scenes)
             {
                 if (scene == CurrentScene)
+                {
                     LoadSceneAsync(scene.ScenePath, LoadSceneMode.Additive);
+                    scene.InstantiateSceneUI(canvas);
+                }  
             }
-
             if (LastScene != null)
+            {
                 UnloadSceneAsync(LastScene.ScenePath);
-
+                LastScene.DestroySceneUI();
+            }
             LastScene = CurrentScene;
         }
     }

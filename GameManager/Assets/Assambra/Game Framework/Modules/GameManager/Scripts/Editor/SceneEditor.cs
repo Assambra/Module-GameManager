@@ -22,7 +22,7 @@ public class SceneEditor : Editor
         }
 
         scene.IsFirstScene = EditorGUILayout.Toggle("Is First Scene", scene.IsFirstScene);
-        scene.SceneUIPrefab = (GameObject)EditorGUILayout.ObjectField("Scene UI Prefab",scene.SceneUIPrefab, typeof(GameObject), true);
+        scene.SceneUI = (SceneUI)EditorGUILayout.ObjectField("Scene UI",scene.SceneUI, typeof(SceneUI), true);
 
         serializedObject.ApplyModifiedProperties();
     }
