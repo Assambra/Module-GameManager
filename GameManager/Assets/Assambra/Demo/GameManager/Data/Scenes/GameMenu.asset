@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc5b32f8af3c3e42bb19b1e24d4a59c, type: 3}
   m_Name: GameMenu
   m_EditorClassIdentifier: 
-  ScenePath: Assets/Assambra/Demo/DemoScenes/DemoGameMenu.unity
+  ScenePath: Assets/Assambra/Demo/GameManager/DemoScenes/DemoGameMenu.unity
   IsFirstScene: 1
+  SceneUI: {fileID: 11400000, guid: a1e1c5d0f23ccc4409dbe76d11b816dd, type: 2}
