@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SetSceneUI", menuName = "Assambra/SetSceneUI", order = 1)]
+[CreateAssetMenu(fileName = "SceneUISet", menuName = "Assambra/SceneUISet", order = 1)]
 [System.Serializable]
 public class SceneUISet : ScriptableObject
 {

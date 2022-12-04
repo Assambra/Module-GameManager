@@ -9,7 +9,7 @@ The LastScene is unloaded async and the instantiated UIs are destroyed.
 
 How to use the GameManager Asset:
 
-1.) Create a scene, this will be your permanent scene there will be the GameManager, SceneHandler, UIHandler lives. 
+1.) Create a scene, this will be your persistent scene there will be the GameManager, SceneHandler, UIHandler lives. 
 All other scenes are loaded additive.
 
 2.) Add the GameManager, ScenHandler and UIHandler prefab into the hierarchy. 
@@ -17,21 +17,14 @@ UIHandler: Add to the Canvas field the child object canvas and to the SceneHandl
 
 3.) Create your needed scenes like GameMenu, World, Dungeon... Adding all scenes to 
 Build Settings -> Scenes in Built. 
-Additionally: Add to each Scene Main Camera and Directional Light the two scripts MainCamera and DirectionalLight  found in /Scripts/Helper
-And enable on the Persistent Scene IsPersistentMainCamera and IsPersistentDirectionalLight. 
-This will disable all other Directional Light and Main Cameras in play mode or in Game builts. 
-In this way, for example, post-processing can be installed and set once in the camera in the Persistent Scene,
-Or one time a global Light setting for all scenes.
-In the other scenes you can leave the light and camera on in the editor when creating the level. 
-This will also fix the Error that two audio listener in scene, this are attached on the Main Camera, if a aditional scene are loaded.
 
 4.) Create for each scene a Scene asset (except the peristent scene). 
 Menu: Create/Assambra/Scene. Create it into a folder e.g. Data/Scenes 
 and name it to your scene name. One of this need to have checked IsFirstScene e.g GameMenu.
-Add the Scene asset to the SceneHandler scenes list field.
+Add into the Scene field the Scene. Add the Scene asset to the SceneHandler scenes list field.
 
 5.) Create for each UI Set you need a SceneUISet asset.
-Menu: Create/Assambra/SceneUI. Create it into a folder e.g Data/UI 
+Menu: Create/Assambra/SceneUISet. Create it into a folder e.g Data/SceneUISets 
 and name it like Game, GameMenu.
 
 6.) Use the prefab YourScenUI and create for each UI Element you need a new prefab 
