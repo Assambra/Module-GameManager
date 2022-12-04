@@ -13,7 +13,7 @@ How to use the GameManager Asset:
 All other scenes are loaded additive.
 
 2.) Add the GameManager, ScenHandler and UIHandler prefab into the hierarchy. 
-Add to the Canvas field in the GameManager the Canvas from the UserInterface.
+UIHandler: Add to the Canvas field the child object canvas and to the SceneHandler field the SceneHandler.
 
 3.) Create your needed scenes like GameMenu, World, Dungeon... Adding all scenes to 
 Build Settings -> Scenes in Built.
