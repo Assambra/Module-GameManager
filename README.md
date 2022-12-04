@@ -17,10 +17,10 @@
 <br /> 
     <h4>Key Features</h4>
     <ul>
-        <li>GameState - Enum GameState will representating the current GameState and other classes can get the state to do there logic.</li>
-        <li>DontDestroy - Preventing GameObjects where its attached to, they are not destroyed if the scene switched.</li>
-        <li>SceneHandler - Changes the scene to the appropriate GameState</li>
-        <li>UIHandler - UI Element will be enabled to the appropriate GameState and the last UI will be deactivated. </li>
+        <li>We use one persistent Scene all other scene will be load additive/async the last one will unloaded async.</li>
+        <li>For each scene we can create a scene asset (ScriptableObject) that holds a List of SceneUISet also a asset (ScriptableObject) </li>
+        <li>A SceneUISet (ScriptableObject) containing all the UIElement prefabs as a Set in an Array that we want to instantiate in the Scene. You can also add multiple sets per scene.</li>
+        <li>All Scene UIs will automatically be instantiated for the Scene and last Scene UIs will be destroyed. A check if the next scene have the same SceneUISets, then it don't have to be  destroyed or instantiated the UI`s.</li>
     </ul>
     <br />
     <p align="center">
