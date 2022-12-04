@@ -16,7 +16,14 @@ All other scenes are loaded additive.
 UIHandler: Add to the Canvas field the child object canvas and to the SceneHandler field the SceneHandler.
 
 3.) Create your needed scenes like GameMenu, World, Dungeon... Adding all scenes to 
-Build Settings -> Scenes in Built.
+Build Settings -> Scenes in Built. 
+Additionally: Add to each Scene Main Camera and Directional Light the two scripts MainCamera and DirectionalLight  found in /Scripts/Helper
+And enable on the Persistent Scene IsPersistentMainCamera and IsPersistentDirectionalLight. 
+This will disable all other Directional Light and Main Cameras in play mode or in Game builts. 
+In this way, for example, post-processing can be installed and set once in the camera in the Persistent Scene,
+Or one time a global Light setting for all scenes.
+In the other scenes you can leave the light and camera on in the editor when creating the level. 
+This will also fix the Error that two audio listener in scene, this are attached on the Main Camera, if a aditional scene are loaded.
 
 4.) Create for each scene a Scene asset (except the peristent scene). 
 Menu: Create/Assambra/Scene. Create it into a folder e.g. Data/Scenes 
@@ -37,4 +44,16 @@ Add for each SceneUISet the UI Element prefabs that have to be in this set into 
 8.) Select the named Scene asset (lock it with the lock symbol). 
 Add the eralier created named SceneUISet asset to your field list "SceneUISet",
 that you want to use in this scene.
+
+Additional and recommended: 
+Add to each Scene Main Camera and Directional Light the two scripts MainCamera and DirectionalLight
+found in /Scripts/Helper.
+Enable on the Persistent Scene IsPersistentMainCamera and IsPersistentDirectionalLight. 
+This will disable all other Directional Light and Main Cameras in play mode or in Game builts in the other scenes. 
+
+In this way, for example, post-processing can be installed and set once in the camera in the Persistent Scene,
+Or one time a global Light setting for all scenes.
+In the other scenes you can leave the light and camera enabled in the editor when creating the level. 
+This will also fix the Error that two audio listener in scene, this are attached on the Main Camera, 
+if a aditional scene are loaded.
 
