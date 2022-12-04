@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Assambra/Demo/GameManager/DemoScenes/DemoGameMenu.unity
     guid: 34e81ca0749dfdc4dbfc55ae78cd04d6
   - enabled: 1
-    path: Assets/Assambra/Demo/GameManager/DemoScenes/DemoBeginnerArea.unity
+    path: Assets/Assambra/Demo/GameManager/DemoScenes/DemoDungeon.unity
     guid: 9351f14194f96d34f92b16de1839a23e
   - enabled: 1
     path: Assets/Assambra/Demo/GameManager/DemoScenes/DemoWorld.unity

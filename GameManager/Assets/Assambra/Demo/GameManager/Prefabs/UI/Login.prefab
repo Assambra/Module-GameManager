@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIElement: {fileID: 5154150646227450983}
+  StartActivated: 0
 --- !u!1 &5154150646227450983
 GameObject:
   m_ObjectHideFlags: 0

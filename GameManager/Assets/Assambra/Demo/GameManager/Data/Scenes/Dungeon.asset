@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab3f4b749507b684cbd324bccfb596a0, type: 3}
-  m_Name: World
+  m_Script: {fileID: 11500000, guid: dfc5b32f8af3c3e42bb19b1e24d4a59c, type: 3}
+  m_Name: Dungeon
   m_EditorClassIdentifier: 
-  UIElementPrefabs:
-  - {fileID: 4662918759508084950, guid: 111790226807880429bfaa40e09a2d1e, type: 3}
-  - {fileID: 3554075187467772206, guid: 93c0930d3be611e4f8c6928c3154cbfc, type: 3}
+  ScenePath: Assets/Assambra/Demo/GameManager/DemoScenes/DemoDungeon.unity
+  IsFirstScene: 0
+  SceneUISets:
+  - {fileID: 11400000, guid: ee1a479a84a77b24791b42d62f3abd45, type: 2}

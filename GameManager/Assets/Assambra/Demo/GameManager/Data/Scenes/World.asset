@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScenePath: Assets/Assambra/Demo/GameManager/DemoScenes/DemoWorld.unity
   IsFirstScene: 0
-  SceneUI: {fileID: 11400000, guid: ee1a479a84a77b24791b42d62f3abd45, type: 2}
+  SceneUISets:
+  - {fileID: 11400000, guid: ee1a479a84a77b24791b42d62f3abd45, type: 2}

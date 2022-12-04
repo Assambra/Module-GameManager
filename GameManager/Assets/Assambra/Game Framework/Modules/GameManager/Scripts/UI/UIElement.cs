@@ -9,12 +9,15 @@ public class UIElement : MonoBehaviour
     /// </summary>
     [Tooltip("The UI element we work with.")]
     [SerializeField] private GameObject uIElement = null;
-
+    [SerializeField] public bool StartActivated = false;
 
     private void Awake()
     {
         if (uIElement == null)
             Debug.LogError("Error: No UI Element found! Setup the UI Element.");
+
+        if (StartActivated)
+            ChangeActiveState();
     }
 
     /// <summary>
@@ -23,5 +26,10 @@ public class UIElement : MonoBehaviour
     public void ChangeActiveState()
     {
         uIElement.SetActive(!uIElement.activeSelf);
+    }
+
+    public bool IsActive()
+    {
+        return uIElement.activeSelf;
     }
 }

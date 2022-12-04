@@ -22,8 +22,8 @@ public class SceneEditor : Editor
         }
 
         scene.IsFirstScene = EditorGUILayout.Toggle("Is First Scene", scene.IsFirstScene);
-        scene.SceneUI = (SceneUI)EditorGUILayout.ObjectField("Scene UI",scene.SceneUI, typeof(SceneUI), true);
-
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("SceneUISets"), true);
+        
         serializedObject.ApplyModifiedProperties();
     }
 }
