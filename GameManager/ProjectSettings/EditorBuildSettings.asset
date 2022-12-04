@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Assambra/Demo/GameManager/DemoScenes/DemoPersistent.unity
+    guid: d458ab99a76872047af23f20e1a31be4
+  - enabled: 1
+    path: Assets/Assambra/Demo/GameManager/DemoScenes/DemoGameMenu.unity
+    guid: 34e81ca0749dfdc4dbfc55ae78cd04d6
+  - enabled: 1
+    path: Assets/Assambra/Demo/GameManager/DemoScenes/DemoDungeon.unity
+    guid: 9351f14194f96d34f92b16de1839a23e
+  - enabled: 1
+    path: Assets/Assambra/Demo/GameManager/DemoScenes/DemoWorld.unity
+    guid: 77607afb913703c4fb40d5530406bda5
   m_configObjects: {}
