@@ -7,10 +7,6 @@ public class SceneUISet : ScriptableObject
 {
     public GameObject[] UIElementPrefabs;
 
-    private void OnEnable()
-    {
-        StartWithDisabledUIElements();
-    }
 
     public void EnableUIElement(string name)
     {
@@ -81,16 +77,17 @@ public class SceneUISet : ScriptableObject
         return retstr;
     }
 
-    private void StartWithDisabledUIElements()
+    public void StartWithDisabledUIElements()
     {
-        Debug.Log("All active UIElements deactivated except wich have StartActivated enabled");
-
-        for (int i = 0; i < UIElementPrefabs.Length; i++)
+        if(UIElementPrefabs.Length > 0)
         {
-            UIElement uIElement = UIElementPrefabs[i].GetComponent<UIElement>();
-            if (!uIElement.StartActivated && uIElement.IsActive())
+            for (int i = 0; i < UIElementPrefabs.Length; i++)
             {
-                uIElement.ChangeActiveState();
+                UIElement uIElement = UIElementPrefabs[i].GetComponent<UIElement>();
+                if (!uIElement.StartActivated && uIElement.IsActive())
+                {
+                    uIElement.ChangeActiveState();
+                }
             }
         }
     }
