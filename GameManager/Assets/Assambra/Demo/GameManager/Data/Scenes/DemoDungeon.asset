@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfc5b32f8af3c3e42bb19b1e24d4a59c, type: 3}
-  m_Name: World
+  m_Name: DemoDungeon
   m_EditorClassIdentifier: 
-  ScenePath: Assets/Assambra/Demo/GameManager/DemoScenes/DemoWorld.unity
+  ScenePath: Assets/Assambra/Demo/GameManager/DemoScenes/DemoDungeon.unity
   IsFirstScene: 0
   SceneUISets:
-  - {fileID: 11400000, guid: ee1a479a84a77b24791b42d62f3abd45, type: 2}
+  - {fileID: 11400000, guid: 4ee4f47606e2f644b8f9a1cdbe34d72e, type: 2}
