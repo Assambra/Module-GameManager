@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class UILogin : MonoBehaviour
 {
-    private SceneHandler sceneHandler;
-
-    private void Awake()
-    {
-        sceneHandler = GameObject.FindObjectOfType<SceneHandler>();
-    }
-
     public void OnButtonWorld()
     {
-        sceneHandler.CurrentScene = sceneHandler.Scenes[1];
+        GameManager.Instance.ChangeScene(Scenes.DemoWorld);
     }
 }

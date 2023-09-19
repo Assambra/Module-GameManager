@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class UIWorld : MonoBehaviour
 {
-    private SceneHandler sceneHandler;
-    
-    private void Awake ()
-    {
-        sceneHandler = GameObject.FindObjectOfType<SceneHandler>();
-    }
-
     public void OnButtonBack()
     {
-        sceneHandler.CurrentScene = sceneHandler.Scenes[0];
+        GameManager.Instance.ChangeScene(Scenes.DemoLogin);
     }
 
     public void OnButtonDungeon()
     {
-        sceneHandler.CurrentScene = sceneHandler.Scenes[2];
+        GameManager.Instance.ChangeScene(Scenes.DemoDungeon);
     }
 }
