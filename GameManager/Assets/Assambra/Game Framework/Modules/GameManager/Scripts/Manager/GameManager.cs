@@ -1,19 +1,13 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public static GameManager Instance { get; private set; }
-
     [field: SerializeField] public SceneHandler sceneHandler { get; private set; }
 
 
-    public void Awake()
+    protected override void Awake()
     {
-        if (Instance != null && Instance != this)
-            Destroy(this);
-        else
-            Instance = this;
+        base.Awake();
 
         SceneHandler.OnSceneChanged += OnSceneChanged;
     }
