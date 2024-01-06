@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class GameManager : Singleton<GameManager>
+public abstract class BaseGameManager : Singleton<BaseGameManager>
 {
     public static event Action<GameState> OnStateChanged;
     [field: SerializeField] public SceneHandler sceneHandler { get; private set; }
@@ -33,15 +33,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        switch (_currentState) 
-        {
-            case GameState.Lobby:
-                Debug.Log("GameManager::Update() Demo GameState Lobby");
-                break;
-            case GameState.Game:
-                Debug.Log("GameManager::Update() Demo GameState Game");
-                break;
-        }
+        
     }
 
     public void ChangeState(GameState newState)
