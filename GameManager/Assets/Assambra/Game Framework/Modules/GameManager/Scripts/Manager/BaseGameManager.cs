@@ -26,16 +26,6 @@ public abstract class BaseGameManager : Singleton<BaseGameManager>
         base.Awake();
     }
 
-    private void Start()
-    {
-        ChangeState(GameState.Lobby);
-    }
-
-    private void Update()
-    {
-        
-    }
-
     public void ChangeState(GameState newState)
     {
         StartCoroutine(ChangeStateRoutine(newState));
@@ -57,8 +47,5 @@ public abstract class BaseGameManager : Singleton<BaseGameManager>
         sceneHandler.CurrentScene = sceneHandler.Scenes[(int)scene];
     }
 
-    private void OnSceneChanged()
-    {
-        //Debug.Log("Scene changed");
-    }
+    protected abstract void OnSceneChanged();
 }

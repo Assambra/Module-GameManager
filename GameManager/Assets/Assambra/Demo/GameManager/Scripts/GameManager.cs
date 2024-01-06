@@ -1,9 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : BaseGameManager
 {
+    private void Start()
+    {
+        ChangeState(GameState.Lobby);
+    }
+
     private void Update()
     {
         switch (_currentState)
@@ -15,5 +18,10 @@ public class GameManager : BaseGameManager
                 Debug.Log("GameManager::Update() Demo GameState Game");
                 break;
         }
+    }
+
+    protected override void OnSceneChanged()
+    {
+        Debug.Log("GameManager::OnSceneChanged(), Demo do something if the scene are changed");
     }
 }
