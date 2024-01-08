@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Assambra/Demo/GameManager/DemoScenes/DemoWorld.unity
     guid: 77607afb913703c4fb40d5530406bda5
   - enabled: 1
+    path: Assets/Assambra/Demo/GameManager/DemoScenes/DemoWorldEnvironment.unity
+    guid: 19efb8124dbf9204cb526eb9c214741b
+  - enabled: 1
     path: Assets/Assambra/Demo/GameManager/DemoScenes/DemoDungeon.unity
     guid: 9351f14194f96d34f92b16de1839a23e
+  - enabled: 1
+    path: Assets/Assambra/Demo/GameManager/DemoScenes/DemoDungeonEnvironment.unity
+    guid: c0d9edb7413d9d047b2b82face77c42d
   m_configObjects: {}

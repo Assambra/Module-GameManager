@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,11 +30,29 @@ public class SceneHandler : MonoBehaviour
             foreach (Scene scene in Scenes)
             {
                 if (scene == CurrentScene)
-                    LoadSceneAsync(scene.ScenePath, LoadSceneMode.Additive);
+                {
+                    foreach(SceneAsset sa in scene.scenes)
+                    {
+                        string scenePath = AssetDatabase.GetAssetPath(sa);
+                        LoadSceneAsync(scenePath, LoadSceneMode.Additive);
+                    }
+                }
             }
 
             if (LastScene != null)
-                UnloadSceneAsync(LastScene.ScenePath);
+            {
+                foreach(Scene scene in Scenes)
+                {
+                    if (scene == LastScene)
+                    {
+                        foreach (SceneAsset sa in scene.scenes)
+                        {
+                            string scenePath = AssetDatabase.GetAssetPath(sa);
+                            UnloadSceneAsync(scenePath);
+                        }
+                    }
+                }
+            }
 
             LastScene = CurrentScene;
         }
