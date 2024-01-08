@@ -21,33 +21,37 @@ public class UIHandler : MonoBehaviour
 
     private void SceneChanged()
     {
-        bool isTheSameSet = false;
+        HashSet<string> lastUIElements = new HashSet<string>();
 
         if (sceneHandler.LastScene != null)
         {
-            isTheSameSet = Enumerable.SequenceEqual(sceneHandler.LastScene.SceneUISets.OrderBy(e => e.name), sceneHandler.CurrentScene.SceneUISets.OrderBy(e => e.name));
-            
-            if (!isTheSameSet)
+            lastUIElements = sceneHandler.LastScene.SceneUISets
+                .SelectMany(set => set.UIElementPrefabs)
+                .Select(obj => obj.name)
+                .ToHashSet();
+        }
+
+        HashSet<string> currentUIElements = sceneHandler.CurrentScene.SceneUISets
+            .SelectMany(set => set.UIElementPrefabs)
+            .Select(obj => obj.name)
+            .ToHashSet();
+
+        foreach (var uIElement in uIElements.ToList())
+        {
+            if (!currentUIElements.Contains(uIElement.name))
             {
-                DestroyLastUIElements();
-                uIElements.Clear();
+                Destroy(uIElement);
+                uIElements.Remove(uIElement);
             }
         }
 
-        if (!isTheSameSet)
+        foreach (var sceneUISet in sceneHandler.CurrentScene.SceneUISets)
         {
-            foreach (Scene scene in sceneHandler.Scenes)
+            foreach (var obj in sceneUISet.UIElementPrefabs)
             {
-                if (scene == sceneHandler.CurrentScene)
+                if (sceneHandler.LastScene == null || !lastUIElements.Contains(obj.name))
                 {
-                    foreach (SceneUISet sceneUISet in scene.SceneUISets)
-                    {
-                        foreach (GameObject obj in sceneUISet.UIElementPrefabs)
-                        {
-                            InstantiateCurrentSceneUI(obj);
-                        }
-                    }
-                    return;
+                    InstantiateCurrentSceneUI(obj);
                 }
             }
         }
@@ -58,13 +62,5 @@ public class UIHandler : MonoBehaviour
         GameObject go = Instantiate(obj, canvas);
         go.name = obj.name;
         uIElements.Add(go);
-    }
-
-    private void DestroyLastUIElements()
-    {
-        foreach (GameObject uIElement in uIElements)
-        {
-            Destroy(uIElement);
-        }
     }
 }
