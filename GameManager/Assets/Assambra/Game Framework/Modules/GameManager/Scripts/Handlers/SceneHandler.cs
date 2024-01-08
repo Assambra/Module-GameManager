@@ -1,61 +1,61 @@
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class SceneHandler : MonoBehaviour
 {
-    public List<Scene> Scenes = new List<Scene>();
-    public Scene CurrentScene = null;
-    public Scene LastScene = null;
+    public static event Action<Scene, Scene> OnSceneChanged;
 
-    public delegate void SceneAction();
-    public static event SceneAction OnSceneChanged;
+    public List<Scene> Scenes = new List<Scene>();
+
+    private Scene lastScene = null;
 
     private void Awake()
     {
-        foreach (Scene scene in Scenes)
+        ChangeScene(GetFirstScene());
+    }
+
+    public void ChangeScene(Scene newScene)
+    {
+        if (lastScene != newScene)
         {
-            if (scene.IsFirstScene)
-                CurrentScene = scene;
+            OnSceneChanged?.Invoke(lastScene, newScene);
+            UnloadScenesInSceneObject(lastScene);
+            LoadScenesInSceneObject(newScene);
+            lastScene = newScene;
         }
     }
 
-    void Update()
+    private void LoadScenesInSceneObject(Scene scene)
     {
-        if (CurrentScene != LastScene)
+        if (scene != null)
         {
-            OnSceneChanged?.Invoke();
-
-            foreach (Scene scene in Scenes)
+            foreach (SceneAsset sa in scene.scenes)
             {
-                if (scene == CurrentScene)
-                {
-                    foreach(SceneAsset sa in scene.scenes)
-                    {
-                        string scenePath = AssetDatabase.GetAssetPath(sa);
-                        LoadSceneAsync(scenePath, LoadSceneMode.Additive);
-                    }
-                }
+                string scenePath = AssetDatabase.GetAssetPath(sa);
+                LoadSceneAsync(scenePath, LoadSceneMode.Additive);
             }
-
-            if (LastScene != null)
-            {
-                foreach(Scene scene in Scenes)
-                {
-                    if (scene == LastScene)
-                    {
-                        foreach (SceneAsset sa in scene.scenes)
-                        {
-                            string scenePath = AssetDatabase.GetAssetPath(sa);
-                            UnloadSceneAsync(scenePath);
-                        }
-                    }
-                }
-            }
-
-            LastScene = CurrentScene;
         }
+    }
+
+    private void UnloadScenesInSceneObject(Scene scene)
+    {
+        if (scene != null)
+        {
+            foreach (SceneAsset sa in scene.scenes)
+            {
+                string scenePath = AssetDatabase.GetAssetPath(sa);
+                UnloadSceneAsync(scenePath);
+            }
+        }
+    }
+
+    private Scene GetFirstScene()
+    {
+        return Scenes.Find(scene => scene.IsFirstScene);
     }
 
     private void LoadSceneAsync(string scene, LoadSceneMode mode)

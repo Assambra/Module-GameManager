@@ -44,8 +44,8 @@ public abstract class BaseGameManager : Singleton<BaseGameManager>
 
     public void ChangeScene(Scenes scene)
     {
-        sceneHandler.CurrentScene = sceneHandler.Scenes[(int)scene];
+        sceneHandler.ChangeScene(sceneHandler.Scenes[(int)scene]);
     }
 
-    protected abstract void OnSceneChanged();
+    protected abstract void OnSceneChanged(Scene lastScene, Scene newScene);
 }

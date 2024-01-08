@@ -19,37 +19,37 @@ public class UIHandler : MonoBehaviour
         SceneHandler.OnSceneChanged -= SceneChanged;
     }
 
-    private void SceneChanged()
+    private void SceneChanged(Scene lastScenen, Scene newScene)
     {
         HashSet<string> lastUIElements = new HashSet<string>();
 
-        if (sceneHandler.LastScene != null)
+        if (lastScenen != null)
         {
-            lastUIElements = sceneHandler.LastScene.SceneUISets
+            lastUIElements = lastScenen.SceneUISets
                 .SelectMany(set => set.UIElementPrefabs)
                 .Select(obj => obj.name)
                 .ToHashSet();
         }
 
-        HashSet<string> currentUIElements = sceneHandler.CurrentScene.SceneUISets
+        HashSet<string> newUIElements = newScene.SceneUISets
             .SelectMany(set => set.UIElementPrefabs)
             .Select(obj => obj.name)
             .ToHashSet();
 
         foreach (var uIElement in uIElements.ToList())
         {
-            if (!currentUIElements.Contains(uIElement.name))
+            if (!newUIElements.Contains(uIElement.name))
             {
                 Destroy(uIElement);
                 uIElements.Remove(uIElement);
             }
         }
 
-        foreach (var sceneUISet in sceneHandler.CurrentScene.SceneUISets)
+        foreach (var sceneUISet in newScene.SceneUISets)
         {
             foreach (var obj in sceneUISet.UIElementPrefabs)
             {
-                if (sceneHandler.LastScene == null || !lastUIElements.Contains(obj.name))
+                if (lastScenen == null || !lastUIElements.Contains(obj.name))
                 {
                     InstantiateCurrentSceneUI(obj);
                 }

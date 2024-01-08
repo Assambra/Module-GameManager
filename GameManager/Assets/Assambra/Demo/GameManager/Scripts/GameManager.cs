@@ -20,7 +20,7 @@ public class GameManager : BaseGameManager
         }
     }
 
-    protected override void OnSceneChanged()
+    protected override void OnSceneChanged(Scene lastScene, Scene newScene)
     {
         Debug.Log("GameManager::OnSceneChanged(), Demo do something if the scene are changed");
     }
