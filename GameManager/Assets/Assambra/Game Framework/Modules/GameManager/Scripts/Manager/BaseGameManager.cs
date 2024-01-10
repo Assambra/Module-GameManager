@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class BaseGameManager : Singleton<BaseGameManager>
+
+// Use for the singleton your derived class name in our demo GameManager
+public abstract class BaseGameManager : Singleton<GameManager>
 {
     public static event Action<GameState> OnStateChanged;
     [field: SerializeField] public SceneHandler sceneHandler { get; private set; }

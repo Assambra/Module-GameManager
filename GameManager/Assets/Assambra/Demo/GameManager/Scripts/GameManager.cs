@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class GameManager : BaseGameManager
 {
+    protected override void Awake()
+    {
+        base.Awake();    
+    }
+
     private void Start()
     {
         ChangeState(GameState.Lobby);
