@@ -19,9 +19,11 @@
     <h4>Key Features</h4>
     <ul>
         <li>We use one persistent Scene all other scene will be load additive/async the last one will unloaded async.</li>
-        <li>For each scene we can create a scene asset (ScriptableObject) that holds a List of SceneUISet also a asset (ScriptableObject) </li>
+        <li>For each scene we can create a scene asset (ScriptableObject) that holds a List of SceneUISet also a asset (ScriptableObject). You can also add multiple Unity scenes per "Scene".</li> 
         <li>A SceneUISet (ScriptableObject) containing all the UIElement prefabs as a Set in an Array that we want to instantiate in the Scene. You can also add multiple sets per scene.</li>
-        <li>All Scene UIs will automatically be instantiated for the Scene and last Scene UIs will be destroyed. A check if the next scene have the same SceneUISets, then it don't have to be  destroyed or instantiated the UI`s.</li>
+        <li>All Scene UIs will automatically be instantiated for the new scene and last Scene UIs will be destroyed.</li>
+        <li>We only instantiate uIElements that were not present in the last SceneUISet (are already instantiated). Only those that are no longer present in the new SceneUISet but were instantiated in the last scene are destroyed.</li>
+        <li>GameState machine to use in switch case statement and also event driven to use in e.g UI Elements, events for SceneChanged(scene), GameStateChanged(newScene, lastScene).</li>
     </ul>
     <br />
     <p align="center">
@@ -41,14 +43,9 @@
     <summary>Table of Contents</summary>
     <ol>
         <li><a href="#demo-image">Demo Image</a></li>
-        <li>
-            <a href="#the-unity-game-framework">The Unity Game Framework</a>
-            <ul>
-                <li><a href="#built-with">Built With</a></li>
-            </ul>
-        </li>
+        <li><a href="#the-unity-game-framework">The Unity Game Framework</a>
+        <li><a href="#built-with">Built With</a></li>
         <li><a href="#modules">Modules</a></li>
-        <li><a href="#be-a-gentlemen">Be a Gentlemen</a></li>
         <li><a href="#contact">Contact</a></li>
     </ol>
 </details>
@@ -72,12 +69,9 @@ Learn more about the Unity Game Framework <a href="https://github.com/Assambra/U
 ## Modules
 <ul>
     <li><a href="https://github.com/Assambra/Module-GameManager">GameManager</a></li>
+    <li><a href="https://github.com/Assambra/Module-MouseHandler">MouseHandler</a></li>
+    <li><a href="https://github.com/Assambra/Module-CameraController">CameraController</a></li>
 </ul>
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- Be a Gentlemen-->
-## Be a Gentlemen
-<-- Get Code --> Give Code, if you able to do that.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Contact -->
