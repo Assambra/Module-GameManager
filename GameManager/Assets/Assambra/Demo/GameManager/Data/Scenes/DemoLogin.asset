@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc5b32f8af3c3e42bb19b1e24d4a59c, type: 3}
   m_Name: DemoLogin
   m_EditorClassIdentifier: 
-  scenes:
-  - {fileID: 102900000, guid: 30c1edc8bede7a949ba7cbedf085eed0, type: 3}
   IsFirstScene: 1
+  scenePaths:
+  - Assets/Assambra/Demo/GameManager/DemoScenes/DemoLogin.unity
   SceneUISets:
   - {fileID: 11400000, guid: 8f11c77ac8d00c849b8c25baadaca059, type: 2}

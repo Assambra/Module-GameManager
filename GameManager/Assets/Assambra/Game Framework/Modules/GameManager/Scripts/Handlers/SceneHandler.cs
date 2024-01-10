@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,7 +12,7 @@ public class SceneHandler : MonoBehaviour
 
     private Scene lastScene = null;
 
-    private void Awake()
+    private void Start()
     {
         ChangeScene(GetFirstScene());
     }
@@ -33,9 +32,8 @@ public class SceneHandler : MonoBehaviour
     {
         if (scene != null)
         {
-            foreach (SceneAsset sa in scene.scenes)
+            foreach (string scenePath in scene.scenePaths)
             {
-                string scenePath = AssetDatabase.GetAssetPath(sa);
                 LoadSceneAsync(scenePath, LoadSceneMode.Additive);
             }
         }
@@ -45,9 +43,8 @@ public class SceneHandler : MonoBehaviour
     {
         if (scene != null)
         {
-            foreach (SceneAsset sa in scene.scenes)
+            foreach (string scenePath in scene.scenePaths)
             {
-                string scenePath = AssetDatabase.GetAssetPath(sa);
                 UnloadSceneAsync(scenePath);
             }
         }
@@ -55,6 +52,7 @@ public class SceneHandler : MonoBehaviour
 
     private Scene GetFirstScene()
     {
+        Debug.Log(Scenes.Find(scene => scene.IsFirstScene).name);
         return Scenes.Find(scene => scene.IsFirstScene);
     }
 
