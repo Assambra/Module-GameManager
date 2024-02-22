@@ -2,9 +2,14 @@ using UnityEngine;
 
 public class GameManager : BaseGameManager
 {
-    protected override void Awake()
+    public static GameManager Instance;
+
+    private void Awake()
     {
-        base.Awake();    
+        if (Instance != null && Instance != this)
+            Destroy(this);
+        else
+            Instance = this;
     }
 
     private void Start()
