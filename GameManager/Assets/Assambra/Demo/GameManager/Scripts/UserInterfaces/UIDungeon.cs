@@ -1,9 +1,13 @@
 using UnityEngine;
+using Assambra.GameFramework.GameManager;
 
-public class UIDungeon : MonoBehaviour
+namespace Assambra.GameFramework.Demo.GameManager
 {
-    public void OnButtonBack()
+    public class UIDungeon : MonoBehaviour
     {
-        GameManager.Instance.ChangeScene(Scenes.DemoWorld);
+        public void OnButtonBack()
+        {
+            GameManager.Instance.ChangeScene(Scenes.DemoWorld);
+        }
     }
 }

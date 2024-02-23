@@ -1,39 +1,43 @@
 using UnityEngine;
+using Assambra.GameFramework.GameManager;
 
-public class UILogin : MonoBehaviour
+namespace Assambra.GameFramework.Demo.GameManager
 {
-    private void OnEnable()
+    public class UILogin : MonoBehaviour
     {
-        GameManager.OnStateChanged += HandleStateChange;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.OnStateChanged -= HandleStateChange;
-    }
-
-    private void HandleStateChange(GameState newState)
-    {
-        switch (newState)
+        private void OnEnable()
         {
-            case GameState.Lobby:
-                OnGameStateLobby();
-                break;
+            GameManager.OnStateChanged += HandleStateChange;
         }
+
+        private void OnDisable()
+        {
+            GameManager.OnStateChanged -= HandleStateChange;
+        }
+
+        private void HandleStateChange(GameState newState)
+        {
+            switch (newState)
+            {
+                case GameState.Lobby:
+                    OnGameStateLobby();
+                    break;
+            }
+        }
+
+        private void OnGameStateLobby()
+        {
+            Debug.Log("UILogin::OnGameStateLobby() Demo Game State Machine");
+        }
+
+        #region BUTTON ONCLICK HANDLER
+
+        public void OnButtonWorld()
+        {
+            GameManager.Instance.ChangeState(GameState.Game);
+            GameManager.Instance.ChangeScene(Scenes.DemoWorld);
+        }
+
+        #endregion
     }
-
-    private void OnGameStateLobby()
-    {
-        Debug.Log("UILogin::OnGameStateLobby() Demo Game State Machine");
-    }
-
-    #region BUTTON ONCLICK HANDLER
-
-    public void OnButtonWorld()
-    {
-        GameManager.Instance.ChangeState(GameState.Game);
-        GameManager.Instance.ChangeScene(Scenes.DemoWorld);
-    }
-
-    #endregion
 }

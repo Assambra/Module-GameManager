@@ -1,44 +1,48 @@
 using UnityEngine;
+using Assambra.GameFramework.GameManager;
 
-public class UIWorld : MonoBehaviour
+namespace Assambra.GameFramework.Demo.GameManager
 {
-    private void OnEnable()
+    public class UIWorld : MonoBehaviour
     {
-        GameManager.OnStateChanged += HandleStateChange;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.OnStateChanged -= HandleStateChange;
-    }
-
-    private void HandleStateChange(GameState newState)
-    {
-        switch (newState)
+        private void OnEnable()
         {
-            case GameState.Game:
-                OnGameStateGame();
-                break;
+            GameManager.OnStateChanged += HandleStateChange;
         }
+
+        private void OnDisable()
+        {
+            GameManager.OnStateChanged -= HandleStateChange;
+        }
+
+        private void HandleStateChange(GameState newState)
+        {
+            switch (newState)
+            {
+                case GameState.Game:
+                    OnGameStateGame();
+                    break;
+            }
+        }
+
+        private void OnGameStateGame()
+        {
+            Debug.Log("UIWorld::OnGameStateGame() Demo Game State Machine");
+        }
+
+        #region BUTTON ONCLICK HANDLER
+
+        public void OnButtonBack()
+        {
+            GameManager.Instance.ChangeState(GameState.Lobby);
+            GameManager.Instance.ChangeScene(Scenes.DemoLogin);
+        }
+
+        public void OnButtonDungeon()
+        {
+            GameManager.Instance.ChangeScene(Scenes.DemoDungeon);
+        }
+
+        #endregion
     }
-
-    private void OnGameStateGame()
-    {
-        Debug.Log("UIWorld::OnGameStateGame() Demo Game State Machine");
-    }
-
-    #region BUTTON ONCLICK HANDLER
-
-    public void OnButtonBack()
-    {
-        GameManager.Instance.ChangeState(GameState.Lobby);
-        GameManager.Instance.ChangeScene(Scenes.DemoLogin);
-    }
-
-    public void OnButtonDungeon()
-    {
-        GameManager.Instance.ChangeScene(Scenes.DemoDungeon);
-    }
-
-    #endregion
 }
