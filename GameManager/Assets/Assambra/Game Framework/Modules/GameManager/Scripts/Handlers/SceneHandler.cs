@@ -13,7 +13,7 @@ namespace Assambra.GameFramework.GameManager
 
         private Scene lastScene = null;
 
-        private void Start()
+        private void Awake()
         {
             ChangeScene(GetFirstScene());
         }
