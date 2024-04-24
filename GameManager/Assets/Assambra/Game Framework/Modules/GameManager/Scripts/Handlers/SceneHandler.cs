@@ -29,6 +29,13 @@ namespace Assambra.GameFramework.GameManager
             }
         }
 
+        public Scenes GetScenesByName(string scenename)
+        {
+            Scenes scene = (Scenes)Enum.Parse(typeof(Scenes), scenename);
+
+            return scene;
+        }
+
         private void LoadScenesInSceneObject(Scene scene)
         {
             if (scene != null)
