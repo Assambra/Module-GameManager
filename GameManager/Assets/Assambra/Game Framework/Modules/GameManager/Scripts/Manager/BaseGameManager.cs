@@ -46,7 +46,7 @@ namespace Assambra.GameFramework.GameManager
 
         public Scenes getScenesByName(string scenename)
         {
-            return SceneHandler.GetScenesByName(scenename);
+            return sceneHandler.GetScenesByName(scenename);
         }
 
         protected abstract void OnSceneChanged(Scene lastScene, Scene newScene);
