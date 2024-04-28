@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc5b32f8af3c3e42bb19b1e24d4a59c, type: 3}
   m_Name: DemoWorld
   m_EditorClassIdentifier: 
+  ScenePath: Assets/Assambra/Demo/GameManager/DemoScenes/DemoWorld.unity
   IsFirstScene: 0
-  scenePaths:
-  - Assets/Assambra/Demo/GameManager/DemoScenes/DemoWorld.unity
-  - Assets/Assambra/Demo/GameManager/DemoScenes/DemoWorldEnvironment.unity
   SceneUISets:
   - {fileID: 11400000, guid: 33e2466c2ed705349a8d1f6d6a8f36fc, type: 2}

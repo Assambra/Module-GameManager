@@ -32,9 +32,9 @@ namespace Assambra.GameFramework.GameManager
                     OnSceneChanged?.Invoke(lastScene, newScene);
 
                     if (lastScene != null)
-                        UnloadScenesInSceneObject(lastScene);
+                        UnloadSceneAsync(lastScene.ScenePath);
 
-                    LoadScenesInSceneObject(newScene);
+                    LoadSceneAsync(newScene.ScenePath, LoadSceneMode.Additive);
                     lastScene = newScene;
                 }
             }
@@ -56,28 +56,6 @@ namespace Assambra.GameFramework.GameManager
             Scenes scene = (Scenes)Enum.Parse(typeof(Scenes), scenename);
 
             return scene;
-        }
-
-        private void LoadScenesInSceneObject(Scene scene)
-        {
-            if (scene != null)
-            {
-                foreach (string scenePath in scene.scenePaths)
-                {
-                    LoadSceneAsync(scenePath, LoadSceneMode.Additive);
-                }
-            }
-        }
-
-        private void UnloadScenesInSceneObject(Scene scene)
-        {
-            if (scene != null)
-            {
-                foreach (string scenePath in scene.scenePaths)
-                {
-                    UnloadSceneAsync(scenePath);
-                }
-            }
         }
 
         private Scene GetFirstScene()
