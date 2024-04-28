@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,20 +14,41 @@ namespace Assambra.GameFramework.GameManager
 
         private Scene lastScene = null;
 
-        private void Awake()
+        private bool loadingInProgress = false;
+
+        private void Start()
         {
             ChangeScene(GetFirstScene());
         }
 
         public void ChangeScene(Scene newScene)
         {
-            if (lastScene != newScene)
+            if (IsLoadingInProgress())
+                StartCoroutine(WaitLoadInProgressCoroutine(newScene));
+            else
             {
-                OnSceneChanged?.Invoke(lastScene, newScene);
-                UnloadScenesInSceneObject(lastScene);
-                LoadScenesInSceneObject(newScene);
-                lastScene = newScene;
+                if (lastScene != newScene)
+                {
+                    OnSceneChanged?.Invoke(lastScene, newScene);
+
+                    if (lastScene != null)
+                        UnloadScenesInSceneObject(lastScene);
+
+                    LoadScenesInSceneObject(newScene);
+                    lastScene = newScene;
+                }
             }
+        }
+
+        private bool IsLoadingInProgress()
+        {
+            return loadingInProgress;
+        }
+
+        private IEnumerator WaitLoadInProgressCoroutine(Scene newScene)
+        {
+            yield return new WaitUntil(() => !loadingInProgress);
+            ChangeScene(newScene);
         }
 
         public Scenes GetScenesByName(string scenename)
@@ -66,7 +88,13 @@ namespace Assambra.GameFramework.GameManager
 
         private void LoadSceneAsync(string scene, LoadSceneMode mode)
         {
-            SceneManager.LoadSceneAsync(scene, mode);
+            loadingInProgress = true;
+
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scene, mode);
+            asyncOperation.completed += (asyncOperation) =>
+            {
+                loadingInProgress = false;
+            };
         }
 
         private void UnloadSceneAsync(string scene)
